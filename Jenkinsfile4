@@ -32,14 +32,14 @@ node {
             app.push("${JOB_NAME}" + "_fusioncode_"+"${env.BUILD_NUMBER}")
         }
     }
-    kubernetesDeploy(kubeconfigId: 'kubeconfig-credentials-id',               // REQUIRED
+    kubernetesDeploy(kubeconfigId: 'kubernetes-authentication',               
 
-                 configs: '~/.kube/config', // REQUIRED
+                 configs: '~/.kube/config', 
                  enableConfigSubstitution: false,
         
                  secretName: '',
                  dockerCredentials: [
-                        [credentialsId: 'dockerhub-authentication']
+                        [credentialsId: 'dockerhub_credentials']
                  ]
     )
 }
